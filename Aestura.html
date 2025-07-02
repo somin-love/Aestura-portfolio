@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AESTURA 이소민 포트폴리오</title>
+  <style>
+    :root {
+      --aestura-main-color: #337ccf;
+      --background-color: linear-gradient(to bottom, #d7ecff, #e4d5ff);
+      --text-color: #333;
+      --border-radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', 'Pretendard', sans-serif;
+    }
+
+    body {
+      background: var(--background-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    header {
+      background-color: transparent;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      border-bottom-left-radius: var(--border-radius);
+      border-bottom-right-radius: var(--border-radius);
+    }
+
+    header h1 {
+      color:#7092b9;
+    }
+
+    header h2 {
+      color: #4b70c0;
+    }
+
+    .logo {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 40px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-name {
+      margin-top: 16px;
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--text-color);
+    }
+
+    main {
+      padding: 40px 20px;
+      max-width: 960px;
+      margin: 0 auto 200px;
+    }
+
+    section {
+      background: white;
+      border-radius: var(--border-radius);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      padding: 30px;
+      margin-bottom: 30px;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease-out forwards;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: scale(1.03);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    section:nth-of-type(1) { animation-delay: 0.3s; }
+    section:nth-of-type(2) { animation-delay: 0.5s; }
+    section:nth-of-type(3) { animation-delay: 0.7s; }
+
+    .sns-links {
+      padding: 180px 20px 100px;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+
+    .sns-links.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .sns-links h2 {
+      font-size: 1.8rem;
+      color: #4b70c0;
+      margin-bottom: 30px;
+    }
+
+    .sns-images {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .sns-images img {
+      width: 200px;
+      height: 200px;
+      border-radius: 20px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 14px;
+      padding: 20px;
+      color: #888;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media screen and (max-width: 768px) {
+      header {
+        font-size: 20px;
+        padding: 16px;
+      }
+
+      .logo {
+        width: 90px;
+      }
+
+      .profile img {
+        width: 120px;
+        height: 120px;
+      }
+
+      .profile-name {
+        font-size: 1.2rem;
+      }
+
+      section {
+        padding: 20px;
+      }
+
+      .sns-images img {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1 });
+
+      const targets = document.querySelectorAll('.sns-links');
+      targets.forEach(target => observer.observe(target));
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <img src="images/aestura-logo-transparent.png" alt="AESTURA 로고" class="logo" />
+    <h1>뷰티와 콘텐츠의 균형을 담은 디지털 크리에이터</h1>
+    <h2>안녕하세요, 이소민 입니다!</h2>
+  </header>
+
+  <div class="profile">
+    <img src="images/이소민.jpeg" alt="프로필 사진" />
+    <div class="profile-name">이소민</div>
+  </div>
+
+  <main>
+    <section onclick="openAboutWindow()" style="cursor: pointer;">
+      <h2>About Me</h2>
+      <p>본인 소개와 강점을 소개합니다.</p>
+    </section>
+
+    <section onclick="openAboutWindow()" style="cursor: pointer;">
+      <h2>Projects</h2>
+      <p>참여했던 콘텐츠 제작, 웹 기획, 영상 편집 등의 프로젝트를 소개할 수 있는 공간입니다.</p>
+    </section>
+
+    <section onclick="openAboutWindow()" style="cursor: pointer;">
+      <h2>Reason</h2>
+      <p>에스트라에 애정을 갖게 된 이유와 브랜드 철학에 공감한 계기를 작성한 공간입니다.</p>
+    </section>
+  </main>
+
+  <div class="sns-links">
+    <h2>Follow Me</h2>
+    <div class="sns-images">
+      <a href="#" ><img src="images/youtube-thumbnail.jpg" alt="YouTube" /></a>
+      <h3>Youtube</h3>
+      <a href="https://blog.naver.com/blueming0503" ><img src="images/blog-thumbnail.jpg" alt="Blog" /></a>
+      <h3>blog</h3>
+      <a href="#" ><img src="images/insta-thumbnail.jpg" alt="Instagram" /></a>
+      <h3>insta</h3>
+    </div>
+  </div>
+
+  <footer>
+    &copy; 2025 by 이소민. All rights reserved.
+  </footer>
+</body>
+</html>
