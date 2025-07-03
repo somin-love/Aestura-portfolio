@@ -1,6 +1,59 @@
- 
- <style>
-.aestura-story {
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AESTURA-reason 포트폴리오</title>
+  <style>
+    .back-button {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #e6f0ff;
+      color: #337ccf;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 50px;
+      font-size: 28px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease, background-color 0.2s ease;
+      z-index: 1000;
+    }
+
+    .back-button:hover {
+      transform: scale(1.15);
+      background-color: #d0e6ff;
+    }
+
+    .headline {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #4b70c0;
+      margin-bottom: 40px;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .top-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .top-section img {
+      width: 280px;
+      max-width: 100%;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .aestura-story {
       padding: 200px 20px 60px;
       background: transparent;
       opacity: 0;
@@ -47,28 +100,148 @@
       line-height: 1.6;
     }
 
-    footer {
+    .video-section {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+      padding: 80px 20px;
       text-align: center;
-      font-size: 14px;
-      padding: 20px;
-      color: #888;
     }
-  
- </style>
- 
- 
- 
- <div class="aestura-story">
+
+    .video-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .video-frame {
+      width: 100%;
+      max-width: 720px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      margin: 0 auto 30px;
+    }
+
+    .video-text {
+      font-size: 1rem;
+      color: #444;
+      line-height: 1.6;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .aestura-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      gap: 40px;
+      padding: 100px 20px 60px;
+      background-color: #f8fcfb;
+    }
+
+    .gallery-item {
+      max-width: 300px;
+      text-align: center;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .gallery-item h3 {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #337ccf;
+      margin-bottom: 10px;
+    }
+
+    .gallery-item p {
+      font-size: 0.95rem;
+      color: #444;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-button" title="뒤로가기">&larr;</a>
+
+  <div class="top-section">
+    <img src="images/aestura-logo-transparent.png" alt="AESTURA Cream">
+  </div>
+  <div class="headline">
+   에스트라의 오랜 충성고객에서 이제는 에스트라의 엠버서더로!
+  </div>
+
+  <div class="aestura-story">
     <div class="aestura-mockup">
       <img src="images/aestura-product.jpg" alt="에스트라 제품 이미지" class="aestura-img" />
       <div class="aestura-text">
         <h2>Why AESTURA?</h2>
         <p>
-          저는 민감성 피부를 가진 소비자로서, 피부 장벽을 회복해준 첫 브랜드가 바로 에스트라였습니다.
-          병원에서도 추천하는 더마 브랜드로서의 신뢰도, 그리고 브랜드의 세련되고 청결한 이미지가 늘 인상 깊었어요.
+          저는 민감성 피부를 가진 소비자로서, 피부 장벽을 회복해준<br> <b>첫 브랜드가 바로 에스트라</b>였습니다.
+          병원에서도 추천하는 더마 브랜드로서의 <br>신뢰도, 그리고 브랜드의 세련되고 청결한 이미지가 늘 인상 깊었어요.
           <br /><br />
-          단순한 소비자가 아닌, 이제는 브랜드의 가치를 더 많은 사람들에게 전하고 싶은 크리에이터로 성장하고 싶습니다.
+          단순한 소비자가 아닌, 이제는 <b>브랜드의 가치</b>를 더 많은 사람들에게 전하고 싶은 <b>크리에이터</b>로 성장하고 싶습니다.
         </p>
       </div>
     </div>
   </div>
+
+  <div class="video-section">
+    <video class="video-frame" controls poster="images/video-thumbnail.jpg">
+      <source src="videos/my-aestura-story.mp4" type="video/mp4">
+      브라우저가 video 태그를 지원하지 않습니다.
+    </video>
+    <p class="video-text">
+      저는 오랜 시간 에스트라의 팬이었습니다. 
+      피부 트러블이 심하던 고등학생 시절, 에스트라의 '아토베리어365' 제품을 처음 접했고,
+      이후 민감한 피부를 진정시키는 데에 큰 도움을 받아 꾸준히 사용하고 있습니다.
+      <br /><br />
+      해당 영상은 고등학생 당시 에스트라의 제품에 감탄하여 찍은 리뷰영상입니다.
+    </p>
+  </div>
+
+  <section class="aestura-gallery">
+    <div class="gallery-item">
+      <img src="images/에이시카.jpg" alt="오래 사용한 제품" />
+      <h3>스킨케어계의 혁명, AESTURA</h3>
+      <p>최근 에이시카 흔적세럼이 잡티제거에 <br>효과적이라는 리뷰가 많아요.<br>저도 잡티 세럼의 사용자로서 효과를 <br>체감하고 있어요.</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/피부장벽.jpg" alt="피부 진정" />
+      <h3>피부 장벽을 지켜준 첫 브랜드</h3>
+      <p>자극 받은 날엔 늘 에스트라의 진정 라인이<br> 큰 도움이 되었어요.<br>저는 주로 아토베리어 365라인의<br>스킨, 로션, 엠플을 사용해왔어요.</p>
+    </div>
+    <div class="gallery-item">
+      <img src="images/루틴.jpg" alt="에스트라 루틴" />
+      <h3>저만의 루틴 속 AESTURA</h3>
+      <p>매일 기초 루틴 속 중심은 늘 AESTURA였어요. 익숙하고, 믿을 수 있는 브랜드입니다.<br>사춘기부터 현재까지, 저의 청춘을 담고 있는 <br>에스트라와 계속 함께하고 싶어요.</p>
+    </div>
+  </section>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const story = document.querySelector('.aestura-story');
+      const video = document.querySelector('.video-section');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, {
+        threshold: 0.2
+      });
+
+      observer.observe(story);
+      observer.observe(video);
+    });
+  </script>
+
+</body>
+</html>
